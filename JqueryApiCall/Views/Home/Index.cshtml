@@ -19,21 +19,22 @@
 
         };
 
-        $(":button").click(function () {
+        $("#btnpost").click(function () {
 
             $.ajax({
 
-                type: "POST",
-                dataType:"json",
-                url: "https://localhost:7133/Home",
-                data: mydata,
-                ContentType: "application/json",
-                success: function (data, status) {
+                type: 'POST',
+                dataType: 'json',
+                url: 'https://localhost:7217/Home/AddProduct',
+                contentType: 'application/json',
+                //accept: 'application/json',
+                data: JSON.stringify(mydata),
+                success: function (response) {
                     debugger;
 
 
                 },
-                error: function (jqXHR, status) {
+                error: function (response) {
 
                     debugger;
 
@@ -42,9 +43,31 @@
                 }
 
             });
+        });
+
+        $("#btnget").click(function () {
+
+            $.ajax({
+
+                type: 'GET',
+                //dataType: "json",
+                url: 'https://localhost:7217/Home/JqueryGet',
+                dataType: 'json',
+                ContentType: 'application/json; charset=utf-8',
+                success: function (reps) {
+                    debugger;
+
+
+                },
+                error: function (reps) {
+
+                    debugger;
 
 
 
+                }
+
+            });
         });
 
     });
