@@ -1,0 +1,52 @@
+﻿
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+
+<input id="btnpost" type="button" value="Post Gönder">
+
+<input id="btnget" type="button" value="Get Gönder">
+
+<script>
+    $(document).ready(function () {
+
+        //7217
+        var mydata = {
+
+            Id: 10,
+            Name: "Bisiklet",
+            Price: "30",
+            Category: "Taşıt"
+
+        };
+
+        $(":button").click(function () {
+
+            $.ajax({
+
+                type: "POST",
+                dataType:"json",
+                url: "https://localhost:7133/Home",
+                data: mydata,
+                ContentType: "application/json",
+                success: function (data, status) {
+                    debugger;
+
+
+                },
+                error: function (jqXHR, status) {
+
+                    debugger;
+
+
+
+                }
+
+            });
+
+
+
+        });
+
+    });
+
+</script>
